@@ -1,9 +1,10 @@
-package org.knowm.xchange.examples.bitstamp.marketdata;
+package Bots;
 
 import java.io.IOException;
 
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.ExchangeFactory;
+import org.knowm.xchange.bittrex.*;
 import org.knowm.xchange.bitstamp.BitstampExchange;
 import org.knowm.xchange.bitstamp.dto.marketdata.BitstampTicker;
 import org.knowm.xchange.bitstamp.service.BitstampMarketDataServiceRaw;
@@ -14,7 +15,7 @@ import org.knowm.xchange.service.marketdata.MarketDataService;
 /**
  * Demonstrate requesting Ticker at Bitstamp. You can access both the raw data from Bitstamp or the XChange generic DTO data format.
  */
-public class BitstampTickerDemo {
+public class TestMarketData {
 
   public static void main(String[] args) throws IOException {
 
@@ -32,14 +33,14 @@ public class BitstampTickerDemo {
 
     Ticker ticker = marketDataService.getTicker(CurrencyPair.ETH_USD);
 
-    System.out.println(ticker.toString());
+    System.out.println(ticker.getLast());
   }
 
   private static void raw(BitstampMarketDataServiceRaw marketDataService) throws IOException {
 
     BitstampTicker bitstampTicker = marketDataService.getBitstampTicker(CurrencyPair.ETH_USD);
 
-    System.out.println(bitstampTicker.toString());
+    System.out.println(bitstampTicker.getLast());
   }
 
 }
